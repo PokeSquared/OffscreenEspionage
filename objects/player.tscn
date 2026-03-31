@@ -1,0 +1,504 @@
+[gd_scene format=3 uid="uid://dvpbam3eq4jfg"]
+
+[ext_resource type="Script" uid="uid://d0mwce6f4vn2u" path="res://player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://cbbcaiv5rt6xi" path="res://assets/spy.png" id="2_42cpl"]
+[ext_resource type="Script" uid="uid://4sljvofw2njg" path="res://FPS.gd" id="2_onrkg"]
+[ext_resource type="Shader" uid="uid://ccu70ii7rih35" path="res://player.gdshader" id="2_vqq2l"]
+[ext_resource type="Texture2D" uid="uid://b1cbdenlhh7qs" path="res://assets/Seeneye.png" id="3_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://cyldmd6fcuosx" path="res://assets/sprint.png" id="4_nmc1l"]
+[ext_resource type="Shader" uid="uid://cv8u6t8ydy3d2" path="res://sprintbar.gdshader" id="5_3rerk"]
+[ext_resource type="Script" uid="uid://cyg548x7jtmkl" path="res://mask.gd" id="5_f46kd"]
+[ext_resource type="FontFile" uid="uid://bv8w4lyjchusq" path="res://assets/editundo.ttf" id="6_i825w"]
+[ext_resource type="AudioStream" uid="uid://demvvpy2lo2en" path="res://assets/audio/tick.wav" id="7_i8sra"]
+[ext_resource type="AudioStream" uid="uid://c8bu2wsqewgc" path="res://assets/audio/death.wav" id="8_3rfka"]
+[ext_resource type="AudioStream" uid="uid://dx8he2rvxpndo" path="res://assets/audio/mark.wav" id="9_4vq5b"]
+[ext_resource type="AudioStream" uid="uid://du1afgrca18ok" path="res://assets/audio/freeze.wav" id="10_3nfmf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vqq2l"]
+shader = ExtResource("2_vqq2l")
+shader_parameter/original_0 = Color(0.25490198, 0.25490198, 1, 1)
+shader_parameter/original_1 = Color(0.25490198, 0.38039216, 0.9843137, 1)
+shader_parameter/original_2 = Color(0.1254902, 0, 0.69803923, 1)
+shader_parameter/original_3 = Color(0.44313726, 0.9529412, 0.25490198, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0, 0, 0, 1)
+shader_parameter/replace_1 = Color(0, 0, 0, 1)
+shader_parameter/replace_2 = Color(1, 1, 1, 1)
+shader_parameter/replace_3 = Color(1, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/apply = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqq2l"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r673r"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqnmn"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5esnd"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1o2u"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4hvt"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sux5"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqfnf"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhqug"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cyhxw"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wq66c"]
+atlas = ExtResource("2_42cpl")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_183dw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqq2l")
+}],
+"loop": true,
+"name": &"Dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r673r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqnmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5esnd")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w1o2u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4hvt")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sux5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqfnf")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhqug")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cyhxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wq66c")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
+radius = 2.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
+atlas = ExtResource("3_i3pqv")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2hs0m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hqtel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sweqy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_i825w"]
+shader = ExtResource("5_3rerk")
+shader_parameter/first_color = Color(0, 1, 1, 1)
+shader_parameter/second_color = Color(0, 0.6999998, 1, 1)
+shader_parameter/position = 0.0
+shader_parameter/size = 1.0870000278825
+shader_parameter/angle = 0.0
+
+[sub_resource type="Animation" id="Animation_3rfka"]
+resource_name = "Fade"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0.8039216), Color(0, 0, 0, 0.60784316), Color(0, 0, 0, 0.4117647), Color(0, 0, 0, 0.21568628), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TickSound")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_i8sra")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_i8sra")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_i8sra")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_i8sra")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_i8sra")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_i8sra")
+}],
+"times": PackedFloat32Array(0, 0.40568364, 0.79916626, 1.2048498, 1.6013827, 2)
+}
+tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_i8sra"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vq5b"]
+_data = {
+&"Fade": SubResource("Animation_3rfka"),
+&"RESET": SubResource("Animation_i8sra")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uxov2"]
+radius = 39.012817
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3rfka"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqq2l"]
+radius = 3.0
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=497752158 groups=["Player"]]
+collision_layer = 4
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_4flbx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1084636778]
+visible = false
+scale = Vector2(0.835, 0.835)
+shape = SubResource("CircleShape2D_onrkg")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1275443441]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(0, 1, 1, 1)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=154414932]
+texture_filter = 1
+material = SubResource("ShaderMaterial_vqq2l")
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_183dw")
+animation = &"Down"
+
+[node name="VoidCollision" type="Area2D" parent="." unique_id=1830105700 groups=["PlayerArea"]]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VoidCollision" unique_id=1073527318]
+shape = SubResource("CircleShape2D_4flbx")
+
+[node name="SprintTimer" type="Timer" parent="." unique_id=273276737]
+wait_time = 0.15
+one_shot = true
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1989932404]
+
+[node name="FPS" type="Label" parent="CanvasLayer" unique_id=291223844]
+visible = false
+offset_left = 9.0
+offset_top = 17.0
+offset_right = 49.0
+offset_bottom = 40.0
+text = "?"
+script = ExtResource("2_onrkg")
+
+[node name="Sprint" type="Label" parent="CanvasLayer" unique_id=1784912965]
+visible = false
+offset_left = 9.0
+offset_top = 36.0
+offset_right = 49.0
+offset_bottom = 59.0
+text = "-?"
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=532847002]
+visible = false
+offset_left = 392.0
+offset_top = 153.0
+offset_right = 776.0
+offset_bottom = 512.0
+color = Color(1, 0, 1, 0.15686275)
+
+[node name="Seen" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1211853809]
+texture_filter = 1
+position = Vector2(416, 178)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2hs0m")
+
+[node name="SprintBarSprite" type="Sprite2D" parent="CanvasLayer" unique_id=1780466014]
+texture_filter = 1
+position = Vector2(455, 495)
+scale = Vector2(2, 2)
+texture = ExtResource("4_nmc1l")
+
+[node name="SprintBarSprite2" type="Sprite2D" parent="CanvasLayer" unique_id=1451846444]
+texture_filter = 1
+position = Vector2(455, 495)
+scale = Vector2(2, 2)
+texture = ExtResource("4_nmc1l")
+flip_h = true
+flip_v = true
+
+[node name="SprintBar" type="ColorRect" parent="CanvasLayer" unique_id=960612754]
+material = SubResource("ShaderMaterial_i825w")
+offset_left = 397.0
+offset_top = 485.0
+offset_right = 455.0
+offset_bottom = 495.0
+scale = Vector2(2, 2)
+
+[node name="MarkText" type="Label" parent="CanvasLayer" unique_id=857148517]
+texture_filter = 1
+offset_left = 719.0
+offset_top = 154.0
+offset_right = 772.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_i825w")
+theme_override_font_sizes/font_size = 16
+text = "MARKED"
+
+[node name="MarkedLabel" type="Label" parent="CanvasLayer" unique_id=1315032299]
+texture_filter = 1
+offset_left = 717.0
+offset_top = 164.0
+offset_right = 770.0
+offset_bottom = 193.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_i825w")
+theme_override_font_sizes/font_size = 32
+text = "0/0"
+
+[node name="StopWatchText" type="Label" parent="CanvasLayer" unique_id=1592116307]
+texture_filter = 1
+offset_left = 391.0
+offset_top = 466.0
+offset_right = 444.0
+offset_bottom = 495.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_i825w")
+theme_override_font_sizes/font_size = 16
+text = "00:00"
+
+[node name="Restart" type="Label" parent="CanvasLayer" unique_id=116691281]
+texture_filter = 1
+offset_left = 615.0
+offset_top = 154.0
+offset_right = 706.0
+offset_bottom = 183.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_i825w")
+theme_override_font_sizes/font_size = 16
+text = "RESTARTING..."
+visible_characters = 0
+visible_ratio = 0.0
+
+[node name="Black" type="ColorRect" parent="CanvasLayer" unique_id=1019374079]
+visible = false
+offset_right = 1152.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
+[node name="BlackAnim" type="AnimationPlayer" parent="CanvasLayer/Black" unique_id=1614849914]
+libraries/ = SubResource("AnimationLibrary_4vq5b")
+
+[node name="TickSound" type="AudioStreamPlayer" parent="CanvasLayer/Black" unique_id=554444294]
+volume_db = -4.561
+bus = &"Sound"
+
+[node name="MarkArea" type="Area2D" parent="." unique_id=28701569]
+visible = false
+collision_layer = 9
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MarkArea" unique_id=1810489853]
+shape = SubResource("CircleShape2D_uxov2")
+
+[node name="TestMask" type="Node2D" parent="." unique_id=1221009929]
+visible = false
+position = Vector2(578, 324)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("5_f46kd")
+
+[node name="ColorRect1" type="ColorRect" parent="TestMask" unique_id=1091635083]
+anchors_preset = -1
+anchor_left = 0.46566662
+anchor_top = 2.8050828
+anchor_right = 0.46566662
+anchor_bottom = 2.8050828
+offset_left = -869.3331
+offset_top = 124.66644
+offset_right = 1130.6669
+offset_bottom = 519.9014
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="TestMask" unique_id=1901133685]
+offset_left = -863.99963
+offset_top = -319.33344
+offset_right = -124.39465
+offset_bottom = 328.66656
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect3" type="ColorRect" parent="TestMask" unique_id=1426073748]
+offset_left = 132.0
+offset_top = -319.33344
+offset_right = 963.625
+offset_bottom = 328.66656
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect4" type="ColorRect" parent="TestMask" unique_id=1633345644]
+offset_left = -873.3333
+offset_top = -510.66705
+offset_right = 1126.6667
+offset_bottom = -115.43207
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="StopWatch" type="Timer" parent="." unique_id=1253711560]
+one_shot = true
+autostart = true
+
+[node name="MarkSound" type="AudioStreamPlayer" parent="." unique_id=579438777]
+stream = ExtResource("9_4vq5b")
+bus = &"Sound"
+
+[node name="FreezeSound" type="AudioStreamPlayer" parent="." unique_id=1898097461]
+stream = ExtResource("10_3nfmf")
+volume_db = -4.561
+bus = &"Sound"
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="." unique_id=1684819376]
+stream = ExtResource("8_3rfka")
+volume_db = -4.561
+bus = &"Sound"
+
+[node name="KillZone" type="Area2D" parent="." unique_id=529046769]
+visible = false
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KillZone" unique_id=818094188]
+shape = SubResource("CircleShape2D_3rfka")
+
+[node name="DeathTimer" type="Timer" parent="." unique_id=669809053]
+wait_time = 2.0
+one_shot = true
+
+[node name="StuckColl" type="Area2D" parent="." unique_id=678496988]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StuckColl" unique_id=1645780936]
+shape = SubResource("CircleShape2D_vqq2l")
+
+[node name="StuckTimer" type="Timer" parent="." unique_id=1566774638]
+one_shot = true
+
+[connection signal="timeout" from="SprintTimer" to="." method="_on_sprint_timer_timeout"]
+[connection signal="animation_finished" from="CanvasLayer/Black/BlackAnim" to="." method="_on_black_anim_animation_finished"]
+[connection signal="body_entered" from="MarkArea" to="." method="_on_mark_area_body_entered"]
+[connection signal="body_exited" from="MarkArea" to="." method="_on_mark_area_body_exited"]
+[connection signal="timeout" from="StopWatch" to="." method="_on_stop_watch_timeout"]
+[connection signal="body_entered" from="KillZone" to="." method="_on_kill_zone_body_entered"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="body_entered" from="StuckColl" to="." method="_on_stuck_coll_body_entered"]
+[connection signal="timeout" from="StuckTimer" to="." method="_on_stuck_timer_timeout"]

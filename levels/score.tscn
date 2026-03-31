@@ -1,0 +1,638 @@
+[gd_scene format=4 uid="uid://dk70xl14v5whf"]
+
+[ext_resource type="Texture2D" uid="uid://dxd4wo210td8c" path="res://assets/badgamejamstuff.png" id="1_a16dg"]
+[ext_resource type="Script" uid="uid://b43c7ocw0gced" path="res://score.gd" id="1_rhj0i"]
+[ext_resource type="Texture2D" uid="uid://bvm5pe5a1ehyr" path="res://assets/floor.png" id="2_rhj0i"]
+[ext_resource type="FontFile" uid="uid://bv8w4lyjchusq" path="res://assets/editundo.ttf" id="3_5cn6a"]
+[ext_resource type="AudioStream" uid="uid://demvvpy2lo2en" path="res://assets/audio/tick.wav" id="5_5cn6a"]
+[ext_resource type="AudioStream" uid="uid://rjqxnn1f8mfr" path="res://assets/audio/I swear if that wasn't a P rank.mp3" id="6_rlxto"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rlxto"]
+texture = ExtResource("1_a16dg")
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0/terrains_peering_bit/right_side = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/terrain = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0/terrains_peering_bit/right_side = 0
+2:0/0/terrains_peering_bit/left_side = 0
+3:0/0 = 0
+3:0/0/terrain_set = 0
+3:0/0/terrain = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0/terrains_peering_bit/left_side = 0
+4:0/0 = 0
+4:0/0/terrain_set = 0
+4:0/0/terrain = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0/terrains_peering_bit/right_side = 0
+4:0/0/terrains_peering_bit/bottom_side = 0
+4:0/0/terrains_peering_bit/bottom_left_corner = 0
+4:0/0/terrains_peering_bit/left_side = 0
+4:0/0/terrains_peering_bit/top_left_corner = 0
+4:0/0/terrains_peering_bit/top_side = 0
+4:0/0/terrains_peering_bit/top_right_corner = 0
+5:0/0 = 0
+5:0/0/terrain_set = 0
+5:0/0/terrain = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0/terrains_peering_bit/right_side = 0
+5:0/0/terrains_peering_bit/bottom_right_corner = 0
+5:0/0/terrains_peering_bit/bottom_side = 0
+5:0/0/terrains_peering_bit/left_side = 0
+5:0/0/terrains_peering_bit/top_left_corner = 0
+5:0/0/terrains_peering_bit/top_side = 0
+5:0/0/terrains_peering_bit/top_right_corner = 0
+6:0/0 = 0
+6:0/0/terrain_set = 0
+6:0/0/terrain = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:0/0/terrains_peering_bit/right_side = 0
+6:0/0/terrains_peering_bit/bottom_right_corner = 0
+6:0/0/terrains_peering_bit/bottom_side = 0
+6:0/0/terrains_peering_bit/left_side = 0
+6:0/0/terrains_peering_bit/top_side = 0
+6:0/0/terrains_peering_bit/top_right_corner = 0
+7:0/0 = 0
+7:0/0/terrain_set = 0
+7:0/0/terrain = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0/terrains_peering_bit/right_side = 0
+7:0/0/terrains_peering_bit/bottom_right_corner = 0
+7:0/0/terrains_peering_bit/bottom_side = 0
+7:0/0/terrains_peering_bit/bottom_left_corner = 0
+7:0/0/terrains_peering_bit/left_side = 0
+7:0/0/terrains_peering_bit/top_side = 0
+8:0/0 = 0
+8:0/0/terrain_set = 0
+8:0/0/terrain = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:0/0/terrains_peering_bit/right_side = 0
+8:0/0/terrains_peering_bit/bottom_side = 0
+8:0/0/terrains_peering_bit/left_side = 0
+8:0/0/terrains_peering_bit/top_side = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/terrain = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/terrain = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0/terrains_peering_bit/right_side = 0
+2:1/0/terrains_peering_bit/bottom_right_corner = 0
+2:1/0/terrains_peering_bit/bottom_side = 0
+2:1/0/terrains_peering_bit/bottom_left_corner = 0
+2:1/0/terrains_peering_bit/left_side = 0
+3:1/0 = 0
+3:1/0/terrain_set = 0
+3:1/0/terrain = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0/terrains_peering_bit/bottom_side = 0
+3:1/0/terrains_peering_bit/bottom_left_corner = 0
+3:1/0/terrains_peering_bit/left_side = 0
+4:1/0 = 0
+4:1/0/terrain_set = 0
+4:1/0/terrain = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0/terrains_peering_bit/right_side = 0
+4:1/0/terrains_peering_bit/bottom_right_corner = 0
+4:1/0/terrains_peering_bit/bottom_side = 0
+4:1/0/terrains_peering_bit/bottom_left_corner = 0
+4:1/0/terrains_peering_bit/left_side = 0
+4:1/0/terrains_peering_bit/top_left_corner = 0
+4:1/0/terrains_peering_bit/top_side = 0
+5:1/0 = 0
+5:1/0/terrain_set = 0
+5:1/0/terrain = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0/terrains_peering_bit/right_side = 0
+5:1/0/terrains_peering_bit/bottom_right_corner = 0
+5:1/0/terrains_peering_bit/bottom_side = 0
+5:1/0/terrains_peering_bit/bottom_left_corner = 0
+5:1/0/terrains_peering_bit/left_side = 0
+5:1/0/terrains_peering_bit/top_side = 0
+5:1/0/terrains_peering_bit/top_right_corner = 0
+6:1/0 = 0
+6:1/0/terrain_set = 0
+6:1/0/terrain = 0
+6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:1/0/terrains_peering_bit/right_side = 0
+6:1/0/terrains_peering_bit/bottom_side = 0
+6:1/0/terrains_peering_bit/left_side = 0
+6:1/0/terrains_peering_bit/top_left_corner = 0
+6:1/0/terrains_peering_bit/top_side = 0
+6:1/0/terrains_peering_bit/top_right_corner = 0
+7:1/0 = 0
+7:1/0/terrain_set = 0
+7:1/0/terrain = 0
+7:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:1/0/terrains_peering_bit/right_side = 0
+7:1/0/terrains_peering_bit/bottom_side = 0
+7:1/0/terrains_peering_bit/bottom_left_corner = 0
+7:1/0/terrains_peering_bit/left_side = 0
+7:1/0/terrains_peering_bit/top_left_corner = 0
+7:1/0/terrains_peering_bit/top_side = 0
+8:1/0 = 0
+8:1/0/terrain_set = 0
+8:1/0/terrain = 0
+8:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+8:1/0/terrains_peering_bit/right_side = 0
+8:1/0/terrains_peering_bit/bottom_right_corner = 0
+8:1/0/terrains_peering_bit/bottom_side = 0
+8:1/0/terrains_peering_bit/left_side = 0
+8:1/0/terrains_peering_bit/top_left_corner = 0
+8:1/0/terrains_peering_bit/top_side = 0
+9:1/0 = 0
+9:1/0/terrain_set = 0
+9:1/0/terrain = 0
+9:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+9:1/0/terrains_peering_bit/right_side = 0
+9:1/0/terrains_peering_bit/bottom_side = 0
+9:1/0/terrains_peering_bit/bottom_left_corner = 0
+9:1/0/terrains_peering_bit/left_side = 0
+9:1/0/terrains_peering_bit/top_side = 0
+9:1/0/terrains_peering_bit/top_right_corner = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/terrain = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:2/0/terrains_peering_bit/bottom_side = 0
+0:2/0/terrains_peering_bit/top_side = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/terrain = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0/terrains_peering_bit/right_side = 0
+1:2/0/terrains_peering_bit/bottom_right_corner = 0
+1:2/0/terrains_peering_bit/bottom_side = 0
+1:2/0/terrains_peering_bit/top_side = 0
+1:2/0/terrains_peering_bit/top_right_corner = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/terrain = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0/terrains_peering_bit/right_side = 0
+2:2/0/terrains_peering_bit/bottom_right_corner = 0
+2:2/0/terrains_peering_bit/bottom_side = 0
+2:2/0/terrains_peering_bit/bottom_left_corner = 0
+2:2/0/terrains_peering_bit/left_side = 0
+2:2/0/terrains_peering_bit/top_left_corner = 0
+2:2/0/terrains_peering_bit/top_side = 0
+2:2/0/terrains_peering_bit/top_right_corner = 0
+3:2/0 = 0
+3:2/0/terrain_set = 0
+3:2/0/terrain = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0/terrains_peering_bit/bottom_side = 0
+3:2/0/terrains_peering_bit/bottom_left_corner = 0
+3:2/0/terrains_peering_bit/left_side = 0
+3:2/0/terrains_peering_bit/top_left_corner = 0
+3:2/0/terrains_peering_bit/top_side = 0
+4:2/0 = 0
+4:2/0/terrain_set = 0
+4:2/0/terrain = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0/terrains_peering_bit/right_side = 0
+4:2/0/terrains_peering_bit/bottom_side = 0
+4:2/0/terrains_peering_bit/left_side = 0
+4:2/0/terrains_peering_bit/top_left_corner = 0
+4:2/0/terrains_peering_bit/top_side = 0
+5:2/0 = 0
+5:2/0/terrain_set = 0
+5:2/0/terrain = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0/terrains_peering_bit/right_side = 0
+5:2/0/terrains_peering_bit/bottom_side = 0
+5:2/0/terrains_peering_bit/left_side = 0
+5:2/0/terrains_peering_bit/top_side = 0
+5:2/0/terrains_peering_bit/top_right_corner = 0
+0:3/0 = 0
+0:3/0/terrain_set = 0
+0:3/0/terrain = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:3/0/terrains_peering_bit/top_side = 0
+1:3/0 = 0
+1:3/0/terrain_set = 0
+1:3/0/terrain = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0/terrains_peering_bit/right_side = 0
+1:3/0/terrains_peering_bit/top_side = 0
+1:3/0/terrains_peering_bit/top_right_corner = 0
+2:3/0 = 0
+2:3/0/terrain_set = 0
+2:3/0/terrain = 0
+2:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0/terrains_peering_bit/right_side = 0
+2:3/0/terrains_peering_bit/left_side = 0
+2:3/0/terrains_peering_bit/top_left_corner = 0
+2:3/0/terrains_peering_bit/top_side = 0
+2:3/0/terrains_peering_bit/top_right_corner = 0
+3:3/0 = 0
+3:3/0/terrain_set = 0
+3:3/0/terrain = 0
+3:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:3/0/terrains_peering_bit/left_side = 0
+3:3/0/terrains_peering_bit/top_left_corner = 0
+3:3/0/terrains_peering_bit/top_side = 0
+4:3/0 = 0
+4:3/0/terrain_set = 0
+4:3/0/terrain = 0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0/terrains_peering_bit/right_side = 0
+4:3/0/terrains_peering_bit/bottom_side = 0
+4:3/0/terrains_peering_bit/bottom_left_corner = 0
+4:3/0/terrains_peering_bit/left_side = 0
+4:3/0/terrains_peering_bit/top_side = 0
+5:3/0 = 0
+5:3/0/terrain_set = 0
+5:3/0/terrain = 0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:3/0/terrains_peering_bit/right_side = 0
+5:3/0/terrains_peering_bit/bottom_right_corner = 0
+5:3/0/terrains_peering_bit/bottom_side = 0
+5:3/0/terrains_peering_bit/left_side = 0
+5:3/0/terrains_peering_bit/top_side = 0
+0:4/0 = 0
+0:4/0/terrain_set = 0
+0:4/0/terrain = 0
+0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:4/0/terrains_peering_bit/right_side = 0
+0:4/0/terrains_peering_bit/bottom_side = 0
+0:4/0/terrains_peering_bit/bottom_left_corner = 0
+0:4/0/terrains_peering_bit/left_side = 0
+1:4/0 = 0
+1:4/0/terrain_set = 0
+1:4/0/terrain = 0
+1:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:4/0/terrains_peering_bit/right_side = 0
+1:4/0/terrains_peering_bit/bottom_right_corner = 0
+1:4/0/terrains_peering_bit/bottom_side = 0
+1:4/0/terrains_peering_bit/left_side = 0
+2:4/0 = 0
+2:4/0/terrain_set = 0
+2:4/0/terrain = 0
+2:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:4/0/terrains_peering_bit/right_side = 0
+2:4/0/terrains_peering_bit/bottom_side = 0
+2:4/0/terrains_peering_bit/top_side = 0
+2:4/0/terrains_peering_bit/top_right_corner = 0
+3:4/0 = 0
+3:4/0/terrain_set = 0
+3:4/0/terrain = 0
+3:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:4/0/terrains_peering_bit/bottom_side = 0
+3:4/0/terrains_peering_bit/left_side = 0
+3:4/0/terrains_peering_bit/top_left_corner = 0
+3:4/0/terrains_peering_bit/top_side = 0
+0:5/0 = 0
+0:5/0/terrain_set = 0
+0:5/0/terrain = 0
+0:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:5/0/terrains_peering_bit/right_side = 0
+0:5/0/terrains_peering_bit/left_side = 0
+0:5/0/terrains_peering_bit/top_left_corner = 0
+0:5/0/terrains_peering_bit/top_side = 0
+1:5/0 = 0
+1:5/0/terrain_set = 0
+1:5/0/terrain = 0
+1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:5/0/terrains_peering_bit/right_side = 0
+1:5/0/terrains_peering_bit/left_side = 0
+1:5/0/terrains_peering_bit/top_side = 0
+1:5/0/terrains_peering_bit/top_right_corner = 0
+2:5/0 = 0
+2:5/0/terrain_set = 0
+2:5/0/terrain = 0
+2:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:5/0/terrains_peering_bit/right_side = 0
+2:5/0/terrains_peering_bit/bottom_right_corner = 0
+2:5/0/terrains_peering_bit/bottom_side = 0
+2:5/0/terrains_peering_bit/top_side = 0
+3:5/0 = 0
+3:5/0/terrain_set = 0
+3:5/0/terrain = 0
+3:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:5/0/terrains_peering_bit/bottom_side = 0
+3:5/0/terrains_peering_bit/bottom_left_corner = 0
+3:5/0/terrains_peering_bit/left_side = 0
+3:5/0/terrains_peering_bit/top_side = 0
+0:6/0 = 0
+0:6/0/terrain_set = 0
+0:6/0/terrain = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:6/0/terrains_peering_bit/right_side = 0
+0:6/0/terrains_peering_bit/bottom_side = 0
+0:6/0/terrains_peering_bit/left_side = 0
+1:6/0 = 0
+1:6/0/terrain_set = 0
+1:6/0/terrain = 0
+1:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:6/0/terrains_peering_bit/bottom_side = 0
+1:6/0/terrains_peering_bit/left_side = 0
+1:6/0/terrains_peering_bit/top_side = 0
+2:6/0 = 0
+2:6/0/terrain_set = 0
+2:6/0/terrain = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:6/0/terrains_peering_bit/right_side = 0
+2:6/0/terrains_peering_bit/bottom_side = 0
+3:6/0 = 0
+3:6/0/terrain_set = 0
+3:6/0/terrain = 0
+3:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:6/0/terrains_peering_bit/bottom_side = 0
+3:6/0/terrains_peering_bit/left_side = 0
+0:7/0 = 0
+0:7/0/terrain_set = 0
+0:7/0/terrain = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:7/0/terrains_peering_bit/right_side = 0
+0:7/0/terrains_peering_bit/bottom_side = 0
+0:7/0/terrains_peering_bit/top_side = 0
+1:7/0 = 0
+1:7/0/terrain_set = 0
+1:7/0/terrain = 0
+1:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:7/0/terrains_peering_bit/right_side = 0
+1:7/0/terrains_peering_bit/left_side = 0
+1:7/0/terrains_peering_bit/top_side = 0
+2:7/0 = 0
+2:7/0/terrain_set = 0
+2:7/0/terrain = 0
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:7/0/terrains_peering_bit/right_side = 0
+2:7/0/terrains_peering_bit/top_side = 0
+3:7/0 = 0
+3:7/0/terrain_set = 0
+3:7/0/terrain = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:7/0/terrains_peering_bit/left_side = 0
+3:7/0/terrains_peering_bit/top_side = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nbvei"]
+texture = ExtResource("2_rhj0i")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_17nw6"]
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(1, 1, 1, 1)
+sources/0 = SubResource("TileSetAtlasSource_rlxto")
+sources/1 = SubResource("TileSetAtlasSource_nbvei")
+
+[node name="Score" type="Node2D" unique_id=617057559]
+script = ExtResource("1_rhj0i")
+
+[node name="BG stuff" type="Node2D" parent="." unique_id=317761677]
+
+[node name="BG" type="ColorRect" parent="BG stuff" unique_id=940455994]
+offset_right = 1156.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="BG stuff" unique_id=1354807012 groups=["Tilemap"]]
+texture_filter = 1
+position = Vector2(554, 336)
+scale = Vector2(1.5, 1.5)
+tile_map_data = PackedByteArray("AAAIAPj/AAADAAYAAAAHAPj/AAACAAAAAAAGAPj/AAACAAAAAAAFAPj/AAACAAAAAAAEAPj/AAACAAAAAAADAPj/AAACAAAAAAACAPj/AAACAAAAAAABAPj/AAACAAAAAAAAAPj/AAACAAAAAAD///j/AAACAAAAAAD+//j/AAACAAAAAAD9//j/AAACAAAAAAD8//j/AAACAAAAAAD7//j/AAACAAAAAAD6//j/AAACAAAAAAD5//j/AAACAAYAAAAIAAYAAAADAAcAAAAIAAUAAAAAAAIAAAAIAAQAAAAAAAIAAAAIAAMAAAAAAAIAAAAIAAIAAAAAAAIAAAAIAAEAAAAAAAIAAAAIAAAAAAAAAAIAAAAIAP//AAAAAAIAAAAIAP7/AAAAAAIAAAAIAP3/AAAAAAIAAAAIAPz/AAAAAAIAAAAIAPv/AAAAAAIAAAAIAPr/AAAAAAIAAAAIAPn/AAAAAAIAAAD5/wYAAAACAAcAAAD5/wUAAAAAAAIAAAD5/wQAAAAAAAIAAAD5/wMAAAAAAAIAAAD5/wIAAAAAAAIAAAD5/wEAAAAAAAIAAAD5/wAAAAAAAAIAAAD5////AAAAAAIAAAD5//7/AAAAAAIAAAD5//3/AAAAAAIAAAD5//z/AAAAAAIAAAD5//v/AAAAAAIAAAD5//r/AAAAAAIAAAD5//n/AAAAAAIAAAAHAAYAAAACAAAAAAAGAAYAAAACAAAAAAAFAAYAAAACAAAAAAAEAAYAAAACAAAAAAADAAYAAAACAAAAAAACAAYAAAACAAAAAAABAAYAAAACAAAAAAAAAAYAAAACAAAAAAD//wYAAAACAAAAAAD+/wYAAAACAAAAAAD9/wYAAAACAAAAAAD8/wYAAAACAAAAAAD7/wYAAAACAAAAAAD6/wYAAAACAAAAAAA=")
+tile_set = SubResource("TileSet_17nw6")
+
+[node name="BG2" type="ColorRect" parent="BG stuff" unique_id=448048106]
+offset_left = 536.0
+offset_top = 198.0
+offset_right = 616.0
+offset_bottom = 278.0
+color = Color(0.09985965, 0.000105731226, 0.17375344, 1)
+
+[node name="BG3" type="ColorRect" parent="BG stuff" unique_id=347681656]
+offset_left = 559.0
+offset_top = 303.0
+offset_right = 594.0
+offset_bottom = 338.0
+color = Color(0.09985965, 0.000105731226, 0.17375344, 1)
+
+[node name="BG4" type="ColorRect" parent="BG stuff" unique_id=1608183188]
+offset_left = 559.0
+offset_top = 369.0
+offset_right = 594.0
+offset_bottom = 404.0
+color = Color(0.09985965, 0.000105731226, 0.17375344, 1)
+
+[node name="BG6" type="ColorRect" parent="BG stuff" unique_id=1881713198]
+offset_left = 660.0
+offset_top = 369.0
+offset_right = 695.0
+offset_bottom = 404.0
+color = Color(0.09985965, 0.000105731226, 0.17375344, 1)
+
+[node name="BG5" type="ColorRect" parent="BG stuff" unique_id=509741719]
+offset_left = 559.0
+offset_top = 433.0
+offset_right = 594.0
+offset_bottom = 468.0
+color = Color(0.09985965, 0.000105731226, 0.17375344, 1)
+
+[node name="NotChangingText" type="Node2D" parent="." unique_id=525983450]
+position = Vector2(491, 168)
+
+[node name="SCORE" type="Label" parent="NotChangingText" unique_id=2074419460]
+texture_filter = 1
+offset_right = 178.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 32
+text = "FINAL SCORE"
+
+[node name="PRESSKEY" type="Label" parent="NotChangingText" unique_id=690258613]
+texture_filter = 1
+offset_left = 156.0
+offset_top = 287.0
+offset_right = 306.0
+offset_bottom = 316.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 12
+text = "PRESS ANY KEY TO
+    CONTINUE"
+
+[node name="TIME" type="Label" parent="NotChangingText" unique_id=2007670106]
+texture_filter = 1
+offset_left = -70.0
+offset_top = 142.0
+offset_right = 52.0
+offset_bottom = 171.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 24
+text = "LEVEL TIME"
+
+[node name="TIMES SPOTTED" type="Label" parent="NotChangingText" unique_id=1729702731]
+texture_filter = 1
+offset_left = -70.0
+offset_top = 210.0
+offset_right = 52.0
+offset_bottom = 239.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 24
+text = "TIMES SEEN"
+
+[node name="DEATHS" type="Label" parent="NotChangingText" unique_id=521607479]
+texture_filter = 1
+offset_left = -70.0
+offset_top = 267.0
+offset_right = 52.0
+offset_bottom = 296.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 24
+text = "DEATHS"
+
+[node name="BONUS INTEL" type="Label" parent="NotChangingText" unique_id=906184448]
+texture_filter = 1
+offset_left = 160.0
+offset_top = 120.0
+offset_right = 220.0
+offset_bottom = 167.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 24
+text = "BONUS
+INTEL"
+
+[node name="Data" type="Node2D" parent="." unique_id=1000553113]
+
+[node name="Time Data" type="Label" parent="Data" unique_id=578959932]
+texture_filter = 1
+offset_left = 421.0
+offset_top = 336.0
+offset_right = 543.0
+offset_bottom = 365.0
+theme_override_colors/font_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 16
+text = "00:00"
+
+[node name="Seen Data" type="Label" parent="Data" unique_id=2124140024]
+texture_filter = 1
+offset_left = 421.0
+offset_top = 398.0
+offset_right = 543.0
+offset_bottom = 427.0
+theme_override_colors/font_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="Death Data" type="Label" parent="Data" unique_id=848362481]
+texture_filter = 1
+offset_left = 420.0
+offset_top = 456.0
+offset_right = 542.0
+offset_bottom = 485.0
+theme_override_colors/font_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 16
+text = "0"
+
+[node name="Intel Data" type="Label" parent="Data" unique_id=391406875]
+texture_filter = 1
+offset_left = 657.0
+offset_top = 342.0
+offset_right = 699.0
+offset_bottom = 357.0
+theme_override_colors/font_color = Color(0.1148968, 0.11489681, 0.1148968, 1)
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 16
+text = "0 / 0"
+
+[node name="Ranks" type="Node2D" parent="." unique_id=804289906]
+
+[node name="Time Rank" type="Label" parent="Ranks" unique_id=1669457880]
+texture_filter = 1
+offset_left = 569.0
+offset_top = 306.0
+offset_right = 587.0
+offset_bottom = 335.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 32
+text = "?"
+
+[node name="Final Rank" type="Label" parent="Ranks" unique_id=1294885290]
+texture_filter = 1
+offset_left = 562.0
+offset_top = 211.0
+offset_right = 594.0
+offset_bottom = 268.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 64
+text = "?"
+
+[node name="Seen Rank" type="Label" parent="Ranks" unique_id=732645202]
+texture_filter = 1
+offset_left = 569.0
+offset_top = 372.0
+offset_right = 587.0
+offset_bottom = 401.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 32
+text = "?"
+
+[node name="Intel Rank" type="Label" parent="Ranks" unique_id=717810951]
+texture_filter = 1
+offset_left = 671.0
+offset_top = 372.0
+offset_right = 689.0
+offset_bottom = 401.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 32
+text = "?"
+
+[node name="Death Rank" type="Label" parent="Ranks" unique_id=1619754451]
+texture_filter = 1
+offset_left = 569.0
+offset_top = 436.0
+offset_right = 587.0
+offset_bottom = 465.0
+theme_override_fonts/font = ExtResource("3_5cn6a")
+theme_override_font_sizes/font_size = 32
+text = "?"
+
+[node name="Timer" type="Timer" parent="." unique_id=1772375651]
+wait_time = 0.35
+one_shot = true
+
+[node name="StartTimer" type="Timer" parent="." unique_id=839951023]
+wait_time = 1.2
+one_shot = true
+autostart = true
+
+[node name="TickSound" type="AudioStreamPlayer" parent="." unique_id=2094192135]
+stream = ExtResource("5_5cn6a")
+volume_db = -4.561
+bus = &"Sound"
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=572247970]
+stream = ExtResource("6_rlxto")
+volume_db = -5.0
+pitch_scale = 0.9
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]

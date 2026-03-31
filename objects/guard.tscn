@@ -1,0 +1,291 @@
+[gd_scene format=3 uid="uid://optne827jh5n"]
+
+[ext_resource type="Script" uid="uid://dhuw2m53s3jxo" path="res://guard.gd" id="1_opr0s"]
+[ext_resource type="Script" uid="uid://dvx7qdbqdmmrr" path="res://conedraw.gd" id="2_081i7"]
+[ext_resource type="Texture2D" uid="uid://yygelwbxj6r7" path="res://assets/enemy.png" id="2_rylmi"]
+[ext_resource type="AudioStream" uid="uid://bsrtmwm5loe3u" path="res://assets/audio/seen.wav" id="3_ylqd4"]
+[ext_resource type="Shader" uid="uid://ccu70ii7rih35" path="res://player.gdshader" id="4_1h8ou"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_udist"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_opr0s"]
+radius = 186.60385
+
+[sub_resource type="Gradient" id="Gradient_081i7"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ylqd4"]
+gradient = SubResource("Gradient_081i7")
+height = 145
+fill_from = Vector2(0.5, 0.4)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="Animation" id="Animation_081i7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rylmi"]
+resource_name = "fade_in"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ylqd4"]
+resource_name = "fade_out"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rylmi"]
+_data = {
+&"RESET": SubResource("Animation_081i7"),
+&"fade_in": SubResource("Animation_rylmi"),
+&"fade_out": SubResource("Animation_ylqd4")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3cjrp"]
+resource_local_to_scene = true
+shader = ExtResource("4_1h8ou")
+shader_parameter/original_0 = Color(0.30980393, 0.050980393, 0.050980393, 1)
+shader_parameter/original_1 = Color(0.19215687, 0, 0, 1)
+shader_parameter/original_2 = Color(0, 0, 0, 1)
+shader_parameter/original_3 = Color(0, 0, 0, 1)
+shader_parameter/original_4 = Color(0, 0, 0, 1)
+shader_parameter/replace_0 = Color(0, 0.56, 0.50399995, 1)
+shader_parameter/replace_1 = Color(0.015000001, 0.19516672, 0.25, 1)
+shader_parameter/replace_2 = Color(0, 0, 0, 1)
+shader_parameter/replace_3 = Color(0, 0, 0, 1)
+shader_parameter/replace_4 = Color(0, 0, 0, 1)
+shader_parameter/apply = false
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h8ou"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3cjrp"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oojvo"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eysg4"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fmmlp"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ieyik"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7eu68"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_14l48"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0x7w2"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pkdp"]
+atlas = ExtResource("2_rylmi")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ylqd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1h8ou")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3cjrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oojvo")
+}],
+"loop": true,
+"name": &"Down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eysg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fmmlp")
+}],
+"loop": true,
+"name": &"Left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ieyik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7eu68")
+}],
+"loop": true,
+"name": &"Right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_14l48")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0x7w2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pkdp")
+}],
+"loop": true,
+"name": &"Up",
+"speed": 5.0
+}]
+
+[node name="Guard" type="CharacterBody2D" unique_id=368955857 groups=["Markable"]]
+collision_layer = 8
+collision_mask = 9
+script = ExtResource("1_opr0s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=527299566]
+scale = Vector2(0.835, 0.835)
+shape = SubResource("CircleShape2D_udist")
+
+[node name="GuardColor" type="ColorRect" parent="." unique_id=863129022]
+visible = false
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+color = Color(1, 0, 0, 1)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1799474188]
+path_desired_distance = 2.0
+max_speed = 180.0
+
+[node name="ConeSight" type="Area2D" parent="." unique_id=407451800]
+collision_layer = 2
+collision_mask = 5
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ConeSight" unique_id=1157150931]
+position = Vector2(-48, 96)
+polygon = PackedVector2Array(0, 72, 48, -84, 96, 72)
+
+[node name="Timer" type="Timer" parent="." unique_id=182475415]
+wait_time = 0.06
+one_shot = true
+
+[node name="State3Area" type="Area2D" parent="." unique_id=1651836108]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="State3Area" unique_id=879768884]
+shape = SubResource("CircleShape2D_opr0s")
+debug_color = Color(0, 0.5950001, 0.7, 0.21960784)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1568687801]
+target_position = Vector2(0, 187)
+collision_mask = 5
+
+[node name="WaitToChange" type="Timer" parent="." unique_id=303711667]
+one_shot = true
+
+[node name="ChangeToIdle" type="Timer" parent="." unique_id=12260180]
+wait_time = 4.0
+one_shot = true
+
+[node name="PosWait" type="Timer" parent="." unique_id=1574529039]
+one_shot = true
+autostart = true
+
+[node name="twotothree" type="Timer" parent="." unique_id=618224622]
+wait_time = 1.5
+one_shot = true
+autostart = true
+
+[node name="Target" type="ColorRect" parent="." unique_id=1292277398]
+visible = false
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+color = Color(0, 0, 1, 1)
+
+[node name="Cone" type="Polygon2D" parent="." unique_id=1340146363]
+color = Color(1, 1, 1, 0.1764706)
+texture = SubResource("GradientTexture2D_ylqd4")
+polygon = PackedVector2Array(0, 7, -54, 180, 53, 180)
+uv = PackedVector2Array(25.410727, -15.775253, -22.589272, 144.22473, 29.694601, 144.22473, 73.41073, 144.22473)
+script = ExtResource("2_081i7")
+
+[node name="ConeAnim" type="AnimationPlayer" parent="Cone" unique_id=452241181]
+libraries/ = SubResource("AnimationLibrary_rylmi")
+
+[node name="DrawConeArea" type="Area2D" parent="." unique_id=668030299]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DrawConeArea" unique_id=370827792]
+polygon = PackedVector2Array(0, 8, -22, 134, 21, 134)
+
+[node name="SeenSound" type="AudioStreamPlayer2D" parent="." unique_id=306106202]
+stream = ExtResource("3_ylqd4")
+volume_db = 3.0
+bus = &"Sound"
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1393182282]
+texture_filter = 1
+material = SubResource("ShaderMaterial_3cjrp")
+scale = Vector2(1.2, 1.2)
+sprite_frames = SubResource("SpriteFrames_ylqd4")
+animation = &"Right"
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="body_entered" from="ConeSight" to="." method="_on_cone_sight_body_entered"]
+[connection signal="body_exited" from="ConeSight" to="." method="_on_cone_sight_body_exited"]
+[connection signal="timeout" from="WaitToChange" to="." method="_on_wait_to_change_timeout"]
+[connection signal="timeout" from="ChangeToIdle" to="." method="_on_change_to_idle_timeout"]
+[connection signal="timeout" from="PosWait" to="." method="_on_pos_wait_timeout"]
+[connection signal="timeout" from="twotothree" to="." method="_on_twotothree_timeout"]
+[connection signal="body_entered" from="DrawConeArea" to="Cone" method="_on_draw_cone_area_body_entered"]
+[connection signal="body_exited" from="DrawConeArea" to="Cone" method="_on_draw_cone_area_body_exited"]

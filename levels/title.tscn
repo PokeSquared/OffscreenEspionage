@@ -1,0 +1,973 @@
+[gd_scene format=3 uid="uid://dvrp08sfy7yvs"]
+
+[ext_resource type="FontFile" uid="uid://bv8w4lyjchusq" path="res://assets/editundo.ttf" id="1_0byv1"]
+[ext_resource type="Script" uid="uid://dvljixooke3t" path="res://title.gd" id="1_k5sll"]
+[ext_resource type="PackedScene" uid="uid://b5ql1k7web225" path="res://objects/option.tscn" id="2_k86xs"]
+[ext_resource type="Script" uid="uid://b0bpjvkbwslrd" path="res://playfunction.gd" id="3_gwl5o"]
+[ext_resource type="AudioStream" uid="uid://dudkynh8u66fj" path="res://assets/audio/Title Espionage.mp3" id="6_wdato"]
+[ext_resource type="Texture2D" uid="uid://cbbcaiv5rt6xi" path="res://assets/spy.png" id="7_7gau0"]
+[ext_resource type="PackedScene" uid="uid://bdhvx1bporcy" path="res://objects/level_rank.tscn" id="7_kevmy"]
+
+[sub_resource type="Gradient" id="Gradient_081i7"]
+colors = PackedColorArray(0.5999999, 0, 1, 1, 0.19999981, 0, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_k5sll"]
+gradient = SubResource("Gradient_081i7")
+height = 145
+fill_from = Vector2(0.5, 0.4)
+fill_to = Vector2(0.5, 1)
+metadata/_snap_count = 54
+metadata/_snap_enabled = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wdato"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kevmy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7gau0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7tqo7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l43rt"]
+
+[sub_resource type="Theme" id="Theme_qovr3"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_wdato")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_kevmy")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_7gau0")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_7tqo7")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_l43rt")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7tqo7"]
+atlas = ExtResource("7_7gau0")
+region = Rect2(16, 0, 16, 0)
+
+[node name="Title" type="Node2D" unique_id=102738862]
+script = ExtResource("1_k5sll")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1235574402]
+offset_right = 1162.0
+offset_bottom = 655.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="gamename" type="Label" parent="." unique_id=1694444005]
+texture_filter = 1
+offset_left = 6.0
+offset_right = 487.0
+offset_bottom = 94.0
+theme_override_fonts/font = ExtResource("1_0byv1")
+theme_override_font_sizes/font_size = 72
+text = "OFFSCREEN 
+ESPIONAGE"
+
+[node name="demo" type="Label" parent="." unique_id=256401552]
+texture_filter = 1
+offset_left = 341.0
+offset_top = 96.0
+offset_right = 463.0
+offset_bottom = 132.0
+theme_override_fonts/font = ExtResource("1_0byv1")
+theme_override_font_sizes/font_size = 32
+text = "1.0"
+
+[node name="seen" type="Label" parent="." unique_id=84507124]
+texture_filter = 1
+offset_left = 931.0
+offset_top = 566.0
+offset_right = 1067.0
+offset_bottom = 602.0
+theme_override_fonts/font = ExtResource("1_0byv1")
+theme_override_font_sizes/font_size = 32
+text = "SEEN: 000"
+
+[node name="deaths" type="Label" parent="." unique_id=1468718071]
+texture_filter = 1
+offset_left = 931.0
+offset_top = 590.0
+offset_right = 1100.0
+offset_bottom = 626.0
+theme_override_fonts/font = ExtResource("1_0byv1")
+theme_override_font_sizes/font_size = 32
+text = "DEATHS: 000"
+
+[node name="intel" type="Label" parent="." unique_id=692505385]
+texture_filter = 1
+offset_left = 931.0
+offset_top = 614.0
+offset_right = 1153.0
+offset_bottom = 650.0
+theme_override_fonts/font = ExtResource("1_0byv1")
+theme_override_font_sizes/font_size = 32
+text = "INTEL: 000/000"
+
+[node name="Options" type="Node2D" parent="." unique_id=1650250565]
+position = Vector2(361, 84)
+
+[node name="Lore" parent="Options" unique_id=1398203140 instance=ExtResource("2_k86xs")]
+offset_left = -355.0
+offset_top = 304.0
+offset_right = -355.0
+offset_bottom = 304.0
+option_name = "Lore"
+is_level = false
+special = true
+
+[node name="FunctionNode" type="Node2D" parent="Options/Lore" unique_id=2060433342]
+script = ExtResource("3_gwl5o")
+function = 2
+
+[node name="Exit" parent="Options" unique_id=1277145004 instance=ExtResource("2_k86xs")]
+offset_left = -355.0
+offset_top = 341.0
+offset_right = -355.0
+offset_bottom = 341.0
+option_name = "Exit"
+is_level = false
+
+[node name="FunctionNode" type="Node2D" parent="Options/Exit" unique_id=42606959]
+script = ExtResource("3_gwl5o")
+function = 1
+
+[node name="Cone" type="Polygon2D" parent="." unique_id=167600540]
+position = Vector2(701.00006, -26)
+scale = Vector2(3.89, 3.89)
+color = Color(1, 1, 1, 0.29411766)
+texture = SubResource("GradientTexture2D_k5sll")
+polygon = PackedVector2Array(0, 7, -54, 180, 53, 180)
+uv = PackedVector2Array(25.410727, -15.775253, -22.589272, 144.22473, 29.694601, 144.22473, 73.41073, 144.22473)
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=975492377]
+stream = ExtResource("6_wdato")
+volume_db = -5.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="SettingsNode" type="Node2D" parent="." unique_id=1752762751]
+position = Vector2(361, 84)
+
+[node name="Sound" type="Label" parent="SettingsNode" unique_id=442174023]
+texture_filter = 1
+offset_left = -355.0
+offset_top = 509.0
+offset_right = -233.0
+offset_bottom = 545.0
+theme_override_fonts/font = ExtResource("1_0byv1")
+theme_override_font_sizes/font_size = 32
+text = "SOUND"
+
+[node name="Music" type="Label" parent="SettingsNode" unique_id=604672499]
+texture_filter = 1
+offset_left = -355.0
+offset_top = 534.0
+offset_right = -233.0
+offset_bottom = 570.0
+theme_override_fonts/font = ExtResource("1_0byv1")
+theme_override_font_sizes/font_size = 32
+text = "MUSIC"
+
+[node name="SoundSlider" type="HSlider" parent="SettingsNode" unique_id=1872886446]
+offset_left = -270.0
+offset_top = 516.0
+offset_right = -126.0
+offset_bottom = 532.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="MusicSlider" type="HSlider" parent="SettingsNode" unique_id=537544989]
+offset_left = -270.0
+offset_top = 541.0
+offset_right = -126.0
+offset_bottom = 557.0
+max_value = 1.0
+step = 0.001
+value = 0.5
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=1498218999]
+offset_left = 6.0
+offset_top = 141.0
+offset_right = 215.0
+offset_bottom = 377.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.050005123, 4.2559615e-05, 0.10108658, 1)
+
+[node name="LevelScroll" type="ScrollContainer" parent="." unique_id=555207609]
+unique_name_in_owner = true
+offset_left = 6.0
+offset_top = 141.0
+offset_right = 224.0
+offset_bottom = 377.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LevelScroll" unique_id=226839385]
+custom_minimum_size = Vector2(0, 600)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_qovr3")
+theme_override_constants/separation = 38
+
+[node name="Play14" parent="LevelScroll/VBoxContainer" unique_id=666313574 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "TUTORIAL"
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play14" unique_id=1991420603]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level0.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play14" unique_id=274146739 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 0
+
+[node name="Play" parent="LevelScroll/VBoxContainer" unique_id=804942237 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 1"
+level_index = 1
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play" unique_id=1158676732]
+script = ExtResource("3_gwl5o")
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play" unique_id=1001567016 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+
+[node name="Play2" parent="LevelScroll/VBoxContainer" unique_id=608522304 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 2"
+level_index = 2
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play2" unique_id=1332687073]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level2.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play2" unique_id=1009824998 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 2
+
+[node name="Play3" parent="LevelScroll/VBoxContainer" unique_id=1102537885 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 3"
+level_index = 3
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play3" unique_id=1715135576]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level3.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play3" unique_id=1727108393 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 3
+
+[node name="Play4" parent="LevelScroll/VBoxContainer" unique_id=1526440544 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 4"
+level_index = 4
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play4" unique_id=915702384]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level4.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play4" unique_id=26928931 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 4
+
+[node name="Play5" parent="LevelScroll/VBoxContainer" unique_id=1979840880 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 5"
+level_index = 5
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play5" unique_id=258430066]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level5.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play5" unique_id=1981312204 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 5
+
+[node name="Play6" parent="LevelScroll/VBoxContainer" unique_id=237268301 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 6"
+level_index = 6
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play6" unique_id=968409989]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level6.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play6" unique_id=1011634631 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 6
+
+[node name="Play7" parent="LevelScroll/VBoxContainer" unique_id=1813957810 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 7"
+level_index = 7
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play7" unique_id=1972694126]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level7.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play7" unique_id=646711973 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 7
+
+[node name="Play8" parent="LevelScroll/VBoxContainer" unique_id=987130487 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 8"
+level_index = 8
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play8" unique_id=1908947265]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level8.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play8" unique_id=1259459382 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 8
+
+[node name="Play9" parent="LevelScroll/VBoxContainer" unique_id=2089407290 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 9"
+level_index = 9
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play9" unique_id=792793148]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level9.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play9" unique_id=1229775998 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 9
+
+[node name="Play10" parent="LevelScroll/VBoxContainer" unique_id=1575450053 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 10"
+level_index = 10
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play10" unique_id=299989351]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level10.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play10" unique_id=903156977 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 10
+
+[node name="Play11" parent="LevelScroll/VBoxContainer" unique_id=413957668 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 11"
+level_index = 11
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play11" unique_id=345126116]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level11.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play11" unique_id=1933848625 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 11
+
+[node name="Play12" parent="LevelScroll/VBoxContainer" unique_id=12253689 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 12"
+level_index = 12
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play12" unique_id=1258180054]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level12.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play12" unique_id=1253083110 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 12
+
+[node name="Control" type="Control" parent="LevelScroll/VBoxContainer" unique_id=135655212]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="LevelScroll/VBoxContainer/Control" unique_id=1262482584]
+layout_mode = 0
+offset_right = 209.0
+offset_bottom = 34.0
+color = Color(0.16456103, 0.058617845, 0.2517434, 1)
+
+[node name="SecretLevels" type="Label" parent="LevelScroll/VBoxContainer/Control" unique_id=316257535]
+texture_filter = 1
+layout_mode = 0
+offset_right = 210.0
+offset_bottom = 29.0
+theme_override_fonts/font = ExtResource("1_0byv1")
+theme_override_font_sizes/font_size = 32
+text = "SECRET LEVELS"
+
+[node name="Play13" parent="LevelScroll/VBoxContainer" unique_id=2054058068 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL 13"
+level_index = 13
+secret = true
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play13" unique_id=1127975383]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level13.tscn"
+
+[node name="LevelRank" parent="LevelScroll/VBoxContainer/Play13" unique_id=1617006472 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+level_id = 6
+
+[node name="Play15" parent="LevelScroll/VBoxContainer" unique_id=929217647 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LEVEL F"
+level_index = 14
+secret = true
+
+[node name="FunctionNode" type="Node2D" parent="LevelScroll/VBoxContainer/Play15" unique_id=1160343130]
+script = ExtResource("3_gwl5o")
+level = "res://levels/level14.tscn"
+
+[node name="LoreScroll" type="ScrollContainer" parent="." unique_id=1494641643]
+unique_name_in_owner = true
+process_mode = 4
+visible = false
+offset_left = 6.0
+offset_top = 141.0
+offset_right = 224.0
+offset_bottom = 377.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoreScroll" unique_id=2124329667]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_qovr3")
+theme_override_constants/separation = 38
+
+[node name="Lore8" parent="LoreScroll/VBoxContainer" unique_id=1817068410 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LORE 0"
+is_level = false
+special = true
+
+[node name="FunctionNode" type="Node2D" parent="LoreScroll/VBoxContainer/Lore8" unique_id=1707215169]
+script = ExtResource("3_gwl5o")
+function = 3
+
+[node name="LevelRank" parent="LoreScroll/VBoxContainer/Lore8" unique_id=31248050 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+lore = true
+text = "0"
+
+[node name="Lore1" parent="LoreScroll/VBoxContainer" unique_id=504109719 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LORE 1"
+is_level = false
+special = true
+
+[node name="FunctionNode" type="Node2D" parent="LoreScroll/VBoxContainer/Lore1" unique_id=1745506099]
+script = ExtResource("3_gwl5o")
+function = 3
+lore = 1
+
+[node name="LevelRank" parent="LoreScroll/VBoxContainer/Lore1" unique_id=475725721 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+lore = true
+text = "5"
+
+[node name="Lore2" parent="LoreScroll/VBoxContainer" unique_id=155136536 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LORE 2"
+is_level = false
+special = true
+
+[node name="FunctionNode" type="Node2D" parent="LoreScroll/VBoxContainer/Lore2" unique_id=195241058]
+script = ExtResource("3_gwl5o")
+function = 3
+lore = 2
+
+[node name="LevelRank" parent="LoreScroll/VBoxContainer/Lore2" unique_id=375407248 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+lore = true
+text = "15"
+
+[node name="Lore3" parent="LoreScroll/VBoxContainer" unique_id=592107329 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LORE 3"
+is_level = false
+special = true
+
+[node name="FunctionNode" type="Node2D" parent="LoreScroll/VBoxContainer/Lore3" unique_id=120448949]
+script = ExtResource("3_gwl5o")
+function = 3
+lore = 3
+
+[node name="LevelRank" parent="LoreScroll/VBoxContainer/Lore3" unique_id=154843970 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+lore = true
+text = "25"
+
+[node name="Lore4" parent="LoreScroll/VBoxContainer" unique_id=189605884 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LORE 4"
+is_level = false
+special = true
+
+[node name="FunctionNode" type="Node2D" parent="LoreScroll/VBoxContainer/Lore4" unique_id=600947460]
+script = ExtResource("3_gwl5o")
+function = 3
+lore = 4
+
+[node name="LevelRank" parent="LoreScroll/VBoxContainer/Lore4" unique_id=2100450524 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+lore = true
+text = "35"
+
+[node name="Lore5" parent="LoreScroll/VBoxContainer" unique_id=1736559121 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LORE 5"
+is_level = false
+special = true
+
+[node name="FunctionNode" type="Node2D" parent="LoreScroll/VBoxContainer/Lore5" unique_id=108498345]
+script = ExtResource("3_gwl5o")
+function = 3
+lore = 5
+
+[node name="LevelRank" parent="LoreScroll/VBoxContainer/Lore5" unique_id=1543146507 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+lore = true
+text = "45"
+
+[node name="Lore6" parent="LoreScroll/VBoxContainer" unique_id=742074436 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LORE X"
+is_level = false
+special = true
+
+[node name="FunctionNode" type="Node2D" parent="LoreScroll/VBoxContainer/Lore6" unique_id=1027851133]
+script = ExtResource("3_gwl5o")
+function = 3
+lore = 6
+
+[node name="LevelRank" parent="LoreScroll/VBoxContainer/Lore6" unique_id=1275635084 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+lore = true
+text = "52"
+
+[node name="Lore7" parent="LoreScroll/VBoxContainer" unique_id=1981013562 instance=ExtResource("2_k86xs")]
+layout_mode = 2
+option_name = "LORE F"
+is_level = false
+special = true
+
+[node name="FunctionNode" type="Node2D" parent="LoreScroll/VBoxContainer/Lore7" unique_id=2125629024]
+script = ExtResource("3_gwl5o")
+function = 3
+lore = 7
+
+[node name="LevelRank" parent="LoreScroll/VBoxContainer/Lore7" unique_id=325855443 instance=ExtResource("7_kevmy")]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 1.0
+offset_right = 207.0
+offset_bottom = 36.0
+lore = true
+special_lore = true
+text = "P"
+
+[node name="LoreText" type="Label" parent="." unique_id=798831837]
+unique_name_in_owner = true
+visible = false
+texture_filter = 1
+offset_left = 226.0
+offset_top = 142.0
+offset_right = 556.0
+offset_bottom = 381.0
+theme_override_fonts/font = ExtResource("1_0byv1")
+theme_override_font_sizes/font_size = 16
+autowrap_mode = 3
+
+[node name="Pile" type="Node2D" parent="." unique_id=963415547]
+visible = false
+position = Vector2(353, 83)
+scale = Vector2(2, 2)
+
+[node name="Spy" type="Sprite2D" parent="Pile" unique_id=1040191993]
+texture_filter = 1
+position = Vector2(169, 138.5)
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy2" type="Sprite2D" parent="Pile" unique_id=1341790999]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(133, 210.5)
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy3" type="Sprite2D" parent="Pile" unique_id=190837075]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(156.5, 191)
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy4" type="Sprite2D" parent="Pile" unique_id=296630259]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(183, 205.5)
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy5" type="Sprite2D" parent="Pile" unique_id=231786282]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(188, 174)
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy6" type="Sprite2D" parent="Pile" unique_id=1221278697]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(170.5, 161)
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy7" type="Sprite2D" parent="Pile" unique_id=1183151313]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(151, 171)
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy8" type="Sprite2D" parent="Pile" unique_id=1539310509]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(211, 208.5)
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy9" type="Sprite2D" parent="Pile" unique_id=691185217]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(202.5, 188)
+rotation = -0.58119464
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy10" type="Sprite2D" parent="Pile" unique_id=1964531028]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(177, 191.5)
+rotation = -0.58119464
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy11" type="Sprite2D" parent="Pile" unique_id=1416103504]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(165.5, 173.49998)
+rotation = -0.58119464
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy12" type="Sprite2D" parent="Pile" unique_id=589349790]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(141, 197.5)
+rotation = -0.58119464
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy13" type="Sprite2D" parent="Pile" unique_id=1321392864]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(167, 212)
+rotation = -0.58119464
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy14" type="Sprite2D" parent="Pile" unique_id=455778572]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(222.5, 208.49998)
+rotation = -0.58119464
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy15" type="Sprite2D" parent="Pile" unique_id=1829483874]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(124, 208.5)
+rotation = -2.5586526
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy16" type="Sprite2D" parent="Pile" unique_id=172794717]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(142, 187.50002)
+rotation = -2.5586526
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy17" type="Sprite2D" parent="Pile" unique_id=852700580]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(154.5, 203.00002)
+rotation = -2.5586526
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy18" type="Sprite2D" parent="Pile" unique_id=1450009609]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(168.5, 186.00002)
+rotation = -2.5586526
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy19" type="Sprite2D" parent="Pile" unique_id=1452316509]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(194, 206.00002)
+rotation = -2.5586526
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy20" type="Sprite2D" parent="Pile" unique_id=1087544107]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(194, 206.00002)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy21" type="Sprite2D" parent="Pile" unique_id=911367037]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(192, 192)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy22" type="Sprite2D" parent="Pile" unique_id=321090851]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(168, 203.49998)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy23" type="Sprite2D" parent="Pile" unique_id=1805088110]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(145, 210)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy24" type="Sprite2D" parent="Pile" unique_id=1565180771]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(156.5, 178.99998)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy25" type="Sprite2D" parent="Pile" unique_id=1452485285]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(184, 182.5)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy26" type="Sprite2D" parent="Pile" unique_id=658121792]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(209.5, 201.49997)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy27" type="Sprite2D" parent="Pile" unique_id=1462372696]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(179.5, 171)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy28" type="Sprite2D" parent="Pile" unique_id=2047962406]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(168, 153.5)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy29" type="Sprite2D" parent="Pile" unique_id=1899822119]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(157, 165.50002)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy30" type="Sprite2D" parent="Pile" unique_id=2111872527]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(232.5, 216)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy31" type="Sprite2D" parent="Pile" unique_id=242757791]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(111.5, 218)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy32" type="Sprite2D" parent="Pile" unique_id=1798302539]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(130.5, 202.5)
+rotation = -1.563815
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy33" type="Sprite2D" parent="Pile" unique_id=1453919162]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(130.5, 202.5)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy34" type="Sprite2D" parent="Pile" unique_id=186324668]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(145.5, 177)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy35" type="Sprite2D" parent="Pile" unique_id=843962984]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(214, 193.5)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy36" type="Sprite2D" parent="Pile" unique_id=1889368815]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(197, 181.5)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy37" type="Sprite2D" parent="Pile" unique_id=1943618664]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(169.5, 182)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy38" type="Sprite2D" parent="Pile" unique_id=1526446582]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(154, 190.99998)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy39" type="Sprite2D" parent="Pile" unique_id=458308541]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(178, 171.50002)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy40" type="Sprite2D" parent="Pile" unique_id=964699274]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(167, 190)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy41" type="Sprite2D" parent="Pile" unique_id=1139634561]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(219, 214.5)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy42" type="Sprite2D" parent="Pile" unique_id=2081080458]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(134.5, 192)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy43" type="Sprite2D" parent="Pile" unique_id=11401214]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(122.5, 208)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[node name="Spy44" type="Sprite2D" parent="Pile" unique_id=1215001940]
+modulate = Color(0, 0, 0, 1)
+texture_filter = 1
+position = Vector2(122.5, 208)
+rotation = -1.1711159
+texture = SubResource("AtlasTexture_7tqo7")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="value_changed" from="SettingsNode/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="SettingsNode/MusicSlider" to="." method="_on_music_slider_value_changed"]

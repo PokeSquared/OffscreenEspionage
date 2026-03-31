@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://berhrd81c65cb"]
+
+[ext_resource type="Script" uid="uid://dsgttnmj3k3x0" path="res://intel.gd" id="1_poscr"]
+[ext_resource type="Texture2D" uid="uid://ol5ykrbm8xqr" path="res://assets/intel.png" id="2_wboc1"]
+[ext_resource type="AudioStream" uid="uid://do2x4u2ocotub" path="res://assets/audio/intel.wav" id="3_wboc1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oo1ga"]
+
+[sub_resource type="Animation" id="Animation_erlay"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_h5uuc"]
+resource_name = "bob"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -3.5, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mbwom"]
+_data = {
+&"RESET": SubResource("Animation_erlay"),
+&"bob": SubResource("Animation_h5uuc")
+}
+
+[node name="Intel" type="Node2D" unique_id=651030571]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_poscr")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=268169275]
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=430526708]
+shape = SubResource("CircleShape2D_oo1ga")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2122296707]
+texture_filter = 1
+texture = ExtResource("2_wboc1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=65902712]
+libraries/ = SubResource("AnimationLibrary_mbwom")
+speed_scale = 1.4
+
+[node name="Pickup" type="AudioStreamPlayer" parent="." unique_id=1884272422]
+stream = ExtResource("3_wboc1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="finished" from="Pickup" to="." method="_on_pickup_finished"]

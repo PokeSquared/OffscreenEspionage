@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://dmm2gptpojia6"]
+
+[ext_resource type="FontFile" uid="uid://bv8w4lyjchusq" path="res://assets/editundo.ttf" id="1_0vm0a"]
+[ext_resource type="PackedScene" uid="uid://b5ql1k7web225" path="res://objects/option.tscn" id="2_8ljen"]
+[ext_resource type="Script" uid="uid://b0bpjvkbwslrd" path="res://playfunction.gd" id="3_pwg5q"]
+
+[node name="demoend" type="Node2D" unique_id=334846242]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=466723896]
+offset_left = -6.0
+offset_top = -7.0
+offset_right = 1162.0
+offset_bottom = 666.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="." unique_id=289300250]
+texture_filter = 1
+offset_left = 3.0
+offset_right = 123.0
+offset_bottom = 29.0
+mouse_filter = 0
+theme_override_fonts/font = ExtResource("1_0vm0a")
+theme_override_font_sizes/font_size = 32
+text = "AND SO YOU REACH THE END
+
+BUT... that cannot be it?
+
+Can IT?
+
+There is still one challenge ahead.
+
+obtain all intel and learn your hidden secrets.
+
+and then you will finally have a challenge.
+
+good luck...
+
+-X"
+
+[node name="Option" parent="." unique_id=1398203140 instance=ExtResource("2_8ljen")]
+offset_left = 4.0
+offset_top = 620.0
+offset_right = 4.0
+offset_bottom = 620.0
+option_name = "TITLE"
+is_level = false
+level_index = 1
+
+[node name="FunctionNode" type="Node2D" parent="Option" unique_id=789478440]
+script = ExtResource("3_pwg5q")
+level = "res://levels/title.tscn"

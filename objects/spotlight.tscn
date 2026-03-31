@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://c5nnsok44jcnr"]
+
+[ext_resource type="Script" uid="uid://c27v81n174o0e" path="res://spotlight.gd" id="1_jgq0w"]
+
+[sub_resource type="Gradient" id="Gradient_itkyv"]
+offsets = PackedFloat32Array(0, 0.60625)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jgq0w"]
+gradient = SubResource("Gradient_itkyv")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n1whl"]
+radius = 20.024984
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0iwqc"]
+radius = 212.68051
+
+[node name="Spotlight" type="Node2D" unique_id=416801566]
+script = ExtResource("1_jgq0w")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=162027517]
+modulate = Color(1, 1, 1, 0.17254902)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = SubResource("GradientTexture2D_jgq0w")
+
+[node name="Detect" type="Area2D" parent="." unique_id=1059296303]
+collision_layer = 5
+collision_mask = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detect" unique_id=1922867850]
+shape = SubResource("CircleShape2D_n1whl")
+debug_color = Color(0, 0.5950001, 0.7, 0.09803922)
+
+[node name="Alert" type="Area2D" parent="." unique_id=1415435537]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Alert" unique_id=481425895]
+shape = SubResource("CircleShape2D_0iwqc")
+debug_color = Color(0, 0.5950001, 0.7, 0.12941177)
+
+[connection signal="body_entered" from="Detect" to="." method="_on_detect_body_entered"]
